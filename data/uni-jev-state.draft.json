@@ -1,0 +1,76 @@
+{
+  "status": "draft_api_sourced_metrics_user_confirmed_cutoff_and_question_pending",
+  "source_snapshot": "uni-report-snapshot.draft.json",
+  "source_audit": "uni-step2-source-audit.md",
+  "source_provenance": {
+    "numeric_metrics_acquisition": "API-fetched, as confirmed by the user",
+    "raw_api_payloads_independently_reviewed_here": false,
+    "endpoint_definitions_and_field_timestamps_available_here": false
+  },
+  "intended_decision_cutoff": {
+    "reported_local_time": "2026-09-20 13:35",
+    "timezone": null,
+    "verified_utc_time": null
+  },
+  "state": {
+    "asset": {
+      "name": "Uniswap",
+      "symbol": "UNI",
+      "coingecko_id": "uniswap",
+      "chain": "Ethereum",
+      "contract": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984"
+    },
+    "reported_market_snapshot_api_sourced_user_confirmed": {
+      "price_usd": 8.79,
+      "price_change_7d_pct": 38.1,
+      "price_change_30d_pct": 128.9,
+      "market_cap_usd": 5460000000,
+      "reported_fdv_usd": 7800000000
+    },
+    "reported_supply_snapshot_api_sourced_user_confirmed": {
+      "circulating_tokens": 621000000,
+      "total_tokens": 888000000,
+      "nominal_max_tokens_claimed": 1000000000,
+      "total_minus_circulating_tokens_calculated": 267000000,
+      "total_minus_circulating_share_of_total_pct_calculated": 30.07,
+      "future_unlock_amount": "unknown"
+    },
+    "reported_protocol_snapshot_api_sourced_user_confirmed": {
+      "tvl_usd": 3760000000,
+      "tvl_change_30d_pct": 21.4,
+      "tvl_change_90d_pct": 24.1,
+      "tvl_change_180d_pct": 16.0
+    },
+    "reported_derivatives_snapshot_api_sourced_user_confirmed": {
+      "funding_rate_pct": 0.01,
+      "funding_interval": "not supplied",
+      "long_short_ratio": 1.95,
+      "long_short_ratio_definition": "not supplied",
+      "bybit_open_interest_usd": 99100000,
+      "okx_open_interest_usd": 56700000,
+      "futures_volume_24h_usd": 570000000,
+      "long_liquidations_180d_usd": 9610000,
+      "short_liquidations_180d_usd": 5180000,
+      "long_liquidations_30d_usd": 2440000,
+      "short_liquidations_30d_usd": 2630000
+    },
+    "historical_reference_facts": {
+      "uniswap_v4_live_since": "2025-01-31",
+      "original_uni_issuance_plan": "One billion UNI minted at genesis; original plan describes 2% yearly inflation after four years.",
+      "uni_contract_mint_function": "Published contract source contains a restricted mint function; current minter state is not established."
+    },
+    "missing_at_cutoff": [
+      "Original API response metadata and field-level timestamps are not present in this draft",
+      "Spot liquidity and a defined historical price series",
+      "Verified future release schedule and token-holder value-capture mechanics"
+    ]
+  },
+  "questions": null,
+  "future_outcomes": null,
+  "notes": [
+    "The user confirms that quantitative indicators were obtained through APIs. Codex has not independently replayed the calls or reviewed their original responses; this is not a finding that the indicators are incorrect.",
+    "The report provides 90-day TVL change, not a 90-day UNI price return. The derivatives figures are raw reported metrics, not proof that liquidations caused a short squeeze.",
+    "Candidate 7d and 30d return-band questions and separate 9m and 18m long-term research-classification questions in uni-questions.draft.json have been used in initial exploratory calls; they are not validated for accuracy. Outcome rules remain in uni-test-protocol.draft.json.",
+    "Do not pass this entire wrapper to Jev; only the nested state can be considered after the source review."
+  ]
+}

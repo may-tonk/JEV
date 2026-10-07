@@ -1,0 +1,19 @@
+# Dependencies and generated files
+node_modules/
+public/app.js
+*.tsbuildinfo
+coverage/
+
+# Local reports and historical archives
+results/
+archive/
+
+# Local credentials; keep the configuration template
+.env
+.env.*
+!.env.example
+
+# Logs and operating system files
+*.log
+.DS_Store
+Thumbs.db

@@ -1,0 +1,237 @@
+{
+  "token_value_capture": {
+    "type": "choice",
+    "ui": { "title": "代币价值捕获", "description": "协议经济活动是否传递给持币人", "group": "证据分类", "scope": "base", "labels": { "active_direct": "已运行的直接价值捕获", "defined_not_active": "已有机制但未运行", "indirect_only": "仅间接受益", "no_documented_capture": "明确无捕获机制", "not_covered": "报告未覆盖" } },
+    "research_points": { "active_direct": 10, "defined_not_active": 6, "indirect_only": 4, "no_documented_capture": 1, "not_covered": 0 },
+    "missing_option": "not_covered",
+    "instructions": "Hermes has already verified the report inputs upstream. Treat explicit report claims as valid and classify the documented relationship between protocol activity and token-holder value. Do not invent a mechanism that the report does not state. Use not_covered only when the report is silent on this topic.",
+    "criteria": {
+      "active_direct": "A documented and active mechanism transfers measurable value to token holders.",
+      "defined_not_active": "A specific mechanism is documented or approved but not active at the snapshot.",
+      "indirect_only": "The report supports only indirect or uncertain benefit.",
+      "no_documented_capture": "The report explicitly establishes no token-holder value-capture mechanism.",
+      "not_covered": "The trusted report does not discuss the mechanism or its status."
+    }
+  },
+  "supply_unlock_evidence": {
+    "type": "choice",
+    "ui": { "title": "供应与解锁证据", "description": "未来释放时间、数量与受益方是否可核查", "group": "证据分类", "scope": "base", "labels": { "schedule_quantified": "释放时间与数量可量化", "schedule_partial": "释放资料不完整", "no_scheduled_release_documented": "有证据显示无计划释放", "conflicting_supply_claims": "供应口径相互冲突", "not_covered": "报告未覆盖" } },
+    "instructions": "Hermes has already verified the supplied token data. Classify the report's stated release situation within 18 months. Distinguish total supply, circulating supply, burned supply, treasury holdings and scheduled releases. Use not_covered only when the report is silent; use schedule_partial when the report gives a conclusion but lacks a material schedule field.",
+    "criteria": {
+      "schedule_quantified": "Future amounts, dates and recipients are documented well enough to quantify.",
+      "schedule_partial": "Some release information is documented but a material field is missing.",
+      "no_scheduled_release_documented": "A reliable schedule explicitly shows no scheduled releases in the horizon.",
+      "conflicting_supply_claims": "Material supply or unlock claims conflict.",
+      "not_covered": "The trusted report does not discuss future releases or an unlock schedule."
+    }
+  },
+  "protocol_activity_trend": {
+    "type": "choice",
+    "ui": { "title": "协议业务趋势", "description": "业务指标改善、稳定、恶化还是矛盾", "group": "证据分类", "scope": "base", "labels": { "improving": "持续改善", "stable": "基本稳定", "deteriorating": "持续恶化", "mixed": "指标互相矛盾", "not_covered": "报告未覆盖" } },
+    "research_points": { "improving": 5, "stable": 3, "deteriorating": 1, "mixed": 2, "not_covered": 0 },
+    "missing_option": "not_covered",
+    "instructions": "Hermes has already verified the supplied protocol metrics. Classify the direction explicitly reported across the periods supplied. Prefer usage, volume, fees or revenue; TVL can establish protocol activity trend but cannot by itself establish token-holder income. Use not_covered only when the report contains no directional activity observation.",
+    "criteria": {
+      "improving": "Comparable relevant indicators mostly improve.",
+      "stable": "Comparable relevant indicators show no material directional change.",
+      "deteriorating": "Comparable relevant indicators mostly deteriorate.",
+      "mixed": "Relevant indicators or periods point in materially different directions.",
+      "not_covered": "The trusted report contains no directional protocol activity observation."
+    }
+  },
+  "valuation_evidence": {
+    "type": "choice",
+    "ui": { "title": "估值证据", "description": "是否有可比较的代币估值基准", "group": "证据分类", "scope": "base", "labels": { "token_level_comparable": "有可比较的代币估值", "token_level_unbenchmarked": "有估值指标但缺基准", "protocol_metrics_only": "只有协议指标", "conflicting_methods": "估值方法冲突", "not_covered": "报告未覆盖" } },
+    "instructions": "Hermes has already verified the supplied valuation inputs. Classify the valuation evidence that the report actually provides. Do not call the token cheap or expensive without a stated metric and benchmark. Use not_covered only when the report contains no valuation information.",
+    "criteria": {
+      "token_level_comparable": "A token-level metric is compared with a stated peer or historical benchmark.",
+      "token_level_unbenchmarked": "A token-level metric exists but has no defensible benchmark.",
+      "protocol_metrics_only": "Only protocol metrics are supplied and the link to token value is not established.",
+      "conflicting_methods": "Material valuation inputs or methods conflict.",
+      "not_covered": "The trusted report contains no valuation information."
+    }
+  },
+  "material_risk_evidence": {
+    "type": "choice",
+    "ui": { "title": "重大风险证据", "description": "区分已核实风险与未经证实疑点", "group": "证据分类", "scope": "base", "labels": { "verified_blocker": "已核实的阻断性问题", "verified_material_risk": "已核实的重大风险", "unverified_concern": "未经核实的疑点", "no_material_risk_documented": "已评估且未见重大风险", "not_covered": "报告未覆盖" } },
+    "instructions": "Hermes has already verified the report inputs. Classify the strongest material downside or security risk explicitly documented in the report. Treat documented caveats as report facts; distinguish an operational blocker from a material risk. Use unverified_concern only when the report itself labels a concern as unconfirmed, and use not_covered only when risk was not discussed.",
+    "criteria": {
+      "verified_blocker": "A verified unresolved issue could prevent normal token ownership, transfer or protocol operation.",
+      "verified_material_risk": "A specific material downside risk is documented but is not an operational blocker.",
+      "unverified_concern": "Potentially material concerns are raised without sufficient verification.",
+      "no_material_risk_documented": "Material risk areas were assessed and no unresolved issue was documented.",
+      "not_covered": "The trusted report contains no usable risk assessment."
+    }
+  },
+  "project_background": {
+    "type": "choice",
+    "ui": { "title": "项目背景", "description": "项目在 Web3 中扮演什么角色", "group": "项目分析", "scope": "base", "labels": { "web3_core_infrastructure": "Web3 核心基础设施", "established_category_leader": "成熟赛道龙头", "credible_emerging_project": "可信的新兴项目", "niche_or_limited_role": "细分或有限角色", "unclear_background": "项目背景不清晰" } },
+    "research_points": { "web3_core_infrastructure": 15, "established_category_leader": 13, "credible_emerging_project": 10, "niche_or_limited_role": 6, "unclear_background": 0 },
+    "missing_option": "unclear_background",
+    "instructions": "Classify the project's role and background in Web3 using the verified Hermes report. Use the report's project definition, history, deployment breadth and protocol role; do not reduce a project to market cap alone.",
+    "criteria": {
+      "web3_core_infrastructure": "The project provides foundational Web3 infrastructure or a core primitive with durable ecosystem relevance.",
+      "established_category_leader": "The project is an established leader in a clearly defined Web3 category.",
+      "credible_emerging_project": "The project has a credible role and early evidence of adoption but is not yet established.",
+      "niche_or_limited_role": "The project has a narrow or limited role in the ecosystem.",
+      "unclear_background": "The trusted report does not establish the project's role or background."
+    }
+  },
+  "web3_position": {
+    "type": "choice",
+    "ui": { "title": "Web3 行业地位", "description": "项目在所属赛道的地位", "group": "项目分析", "scope": "base", "labels": { "category_leader": "赛道龙头", "strong_contender": "强竞争者", "recognized_but_contested": "已知名但竞争激烈", "early_unproven": "早期且未充分验证", "declining_or_displaced": "地位下降或被替代", "position_not_covered": "报告未覆盖行业地位" } },
+    "research_points": { "category_leader": 15, "strong_contender": 12, "recognized_but_contested": 9, "early_unproven": 6, "declining_or_displaced": 2, "position_not_covered": 0 },
+    "missing_option": "position_not_covered",
+    "instructions": "Classify the project's position in Web3 relative to its stated category. Use leadership, recognition, adoption and ecosystem importance from the report, not token price alone.",
+    "criteria": {
+      "category_leader": "The report supports clear category leadership or a dominant ecosystem position.",
+      "strong_contender": "The project is a strong and recognized contender with meaningful ecosystem presence.",
+      "recognized_but_contested": "The project is established but faces credible competitive pressure.",
+      "early_unproven": "The project is early, lightly adopted or not yet proven at scale.",
+      "declining_or_displaced": "The report supports loss of relevance, users, share or ecosystem position.",
+      "position_not_covered": "The trusted report does not establish the project's Web3 position."
+    }
+  },
+  "ecosystem_adoption": {
+    "type": "choice",
+    "ui": { "title": "生态采用与真实使用", "description": "真实使用、采用和生态扩展情况", "group": "项目分析", "scope": "base", "labels": { "broad_real_usage": "广泛真实使用", "growing_usage": "使用持续增长", "stable_usage": "使用稳定", "declining_usage": "使用下降", "limited_or_speculative": "使用有限或偏投机", "adoption_not_covered": "报告未覆盖生态采用" } },
+    "research_points": { "broad_real_usage": 15, "growing_usage": 13, "stable_usage": 10, "declining_usage": 4, "limited_or_speculative": 2, "adoption_not_covered": 0 },
+    "missing_option": "adoption_not_covered",
+    "instructions": "Classify real ecosystem adoption and usage. Prefer users, TVL, transaction volume, integrations, deployments or revenue; distinguish usage from token speculation.",
+    "criteria": {
+      "broad_real_usage": "The project has broad, recurring and externally evidenced ecosystem usage.",
+      "growing_usage": "Usage, integrations or adoption are clearly expanding.",
+      "stable_usage": "Usage is established but not materially expanding or declining.",
+      "declining_usage": "Usage or adoption is materially deteriorating.",
+      "limited_or_speculative": "Activity is limited, incentive-led or primarily speculative.",
+      "adoption_not_covered": "The trusted report does not establish ecosystem adoption."
+    }
+  },
+  "future_development": {
+    "type": "choice",
+    "ui": { "title": "未来发展潜力", "description": "未来发展和执行潜力", "group": "项目分析", "scope": "base", "labels": { "high_potential": "高发展潜力", "credible_but_conditional": "可信但有条件", "moderate_potential": "中等潜力", "uncertain": "潜力不确定", "limited_or_negative": "潜力有限或转弱", "development_not_covered": "报告未覆盖未来发展" } },
+    "research_points": { "high_potential": 20, "credible_but_conditional": 15, "moderate_potential": 11, "uncertain": 6, "limited_or_negative": 2, "development_not_covered": 0 },
+    "missing_option": "development_not_covered",
+    "instructions": "Classify future development potential from the verified roadmap, active development, catalysts, ecosystem expansion and execution evidence. Do not infer future success from repository activity alone.",
+    "criteria": {
+      "high_potential": "The report supports strong development potential with credible execution and catalysts.",
+      "credible_but_conditional": "The project has credible potential, but important execution or adoption conditions remain.",
+      "moderate_potential": "The project can continue developing, but the upside is incremental or already recognized.",
+      "uncertain": "Potential exists but execution, timing or adoption evidence is unclear.",
+      "limited_or_negative": "The report supports limited future development or deterioration.",
+      "development_not_covered": "The trusted report does not establish future development potential."
+    }
+  },
+  "competitive_position": {
+    "type": "choice",
+    "ui": { "title": "竞争位置", "description": "竞争护城河和市场位置", "group": "项目分析", "scope": "base", "labels": { "durable_moat": "具有持久护城河", "leader_with_pressure": "龙头但有压力", "contested": "竞争格局激烈", "losing_share": "正在失去份额", "competition_not_covered": "报告未覆盖竞争位置" } },
+    "research_points": { "durable_moat": 10, "leader_with_pressure": 8, "contested": 5, "losing_share": 2, "competition_not_covered": 0 },
+    "missing_option": "competition_not_covered",
+    "instructions": "Classify competitive strength in the project's category. Consider market share, differentiation, integrations, liquidity, network effects and credible challengers.",
+    "criteria": {
+      "durable_moat": "The project has a defensible advantage that is difficult for competitors to replicate.",
+      "leader_with_pressure": "The project leads or is highly established but faces meaningful competitive pressure.",
+      "contested": "The project competes in a balanced or rapidly changing field.",
+      "losing_share": "The report supports meaningful loss of share, users or relevance.",
+      "competition_not_covered": "The trusted report does not establish competitive position."
+    }
+  },
+  "catalyst_outlook": {
+    "type": "choice",
+    "ui": { "title": "催化剂前景", "description": "未来可能改变判断的催化剂", "group": "项目分析", "scope": "base", "labels": { "strong_near_term_catalyst": "强近期催化剂", "medium_catalyst": "中等催化剂", "long_term_only": "只有长期催化剂", "no_clear_catalyst": "没有明确催化剂", "negative_catalyst": "负面催化剂", "catalyst_not_covered": "报告未覆盖催化剂" } },
+    "research_points": { "strong_near_term_catalyst": 10, "medium_catalyst": 7, "long_term_only": 4, "no_clear_catalyst": 2, "negative_catalyst": 0, "catalyst_not_covered": 0 },
+    "missing_option": "catalyst_not_covered",
+    "instructions": "Classify catalysts and future events that could change the project's research value. Distinguish concrete milestones from vague narratives.",
+    "criteria": {
+      "strong_near_term_catalyst": "A specific, credible near-term catalyst could materially change adoption, value capture or market position.",
+      "medium_catalyst": "There are credible catalysts, but their magnitude or timing is uncertain.",
+      "long_term_only": "The thesis depends mainly on longer-term development without a near-term trigger.",
+      "no_clear_catalyst": "The report does not identify a meaningful catalyst or change driver.",
+      "negative_catalyst": "The next material events are more likely to weaken the thesis than strengthen it.",
+      "catalyst_not_covered": "The trusted report does not establish a catalyst outlook."
+    }
+  },
+  "risk_severity": {
+    "type": "choice",
+    "ui": { "title": "风险严重程度", "description": "风险是阻断、可管理还是普通跟踪项", "group": "项目分析", "scope": "base", "labels": { "blocking_risk": "阻断性风险", "high_but_manageable": "高风险但可管理", "moderate": "中等风险", "ordinary_monitoring": "普通跟踪风险", "low": "低风险", "risk_not_covered": "报告未覆盖风险严重程度" } },
+    "instructions": "Classify the severity of documented risks for research prioritization. Ordinary volatility, competition and valuation uncertainty are not automatically blockers. Use blocking_risk only for a verified issue that prevents normal consideration.",
+    "criteria": {
+      "blocking_risk": "A verified ownership, transfer, security or operational issue blocks normal consideration.",
+      "high_but_manageable": "A material risk requires explicit conditions and monitoring but does not block research.",
+      "moderate": "Risks could materially affect the thesis but are manageable through research and monitoring.",
+      "ordinary_monitoring": "Risks are ordinary for the category and mainly require ongoing monitoring.",
+      "low": "The report identifies no material unresolved risk beyond ordinary uncertainty.",
+      "risk_not_covered": "The trusted report does not establish risk severity."
+    }
+  },
+  "research_priority": {
+    "type": "choice",
+    "ui": { "title": "研究优先级", "description": "这个项目是否值得观察或进入深入研究", "group": "研究判断", "scope": "base", "labels": { "deep_research": "值得深入研究", "watchlist": "值得观察", "monitor_only": "仅持续跟踪", "do_not_prioritize": "暂不优先研究", "blocked": "阻断，不进入" } },
+    "instructions": "Use every relevant verified report dimension: project background, Web3 position, ecosystem adoption, future development, competitive position, catalysts, token value capture, valuation, market context and risk severity. Decide whether the project deserves observation or deeper research. This is the primary project decision, not a precise short-term trade forecast. Missing hourly history only limits precise return forecasting. A documented ordinary or manageable risk is a condition to manage, not automatically a blocker.",
+    "criteria": {
+      "deep_research": "Fundamentals, development or catalysts justify prioritizing deeper research, and no verified blocker dominates.",
+      "watchlist": "The project is worth tracking, but value capture, valuation, market timing or another material condition remains unresolved.",
+      "monitor_only": "The project is interesting enough to monitor, but evidence is mixed or the opportunity is not yet actionable.",
+      "do_not_prioritize": "Weak fundamentals, persistent deterioration or lack of a credible thesis make further research low priority.",
+      "blocked": "A verified operational or ownership issue prevents normal consideration."
+    }
+  },
+  "market_context": {
+    "type": "choice",
+    "ui": { "title": "市场背景", "description": "结合 7 天、30 天和 1 年表现判断市场背景", "group": "研究判断", "scope": "base", "labels": { "positive_multi_horizon": "多周期表现偏强", "short_term_rebound_long_term_weak": "短期反弹但长期偏弱", "persistent_weakness": "多周期持续偏弱", "market_mixed": "市场表现混合", "market_not_covered": "报告未覆盖市场表现" } },
+    "instructions": "Use the verified report's explicit 7-day, 30-day and 1-year return summaries. Do not require hourly data for this classification. Distinguish a short-term rebound from durable multi-horizon strength.",
+    "criteria": {
+      "positive_multi_horizon": "7-day and 30-day performance are positive and the 1-year context is also supportive or not materially weak.",
+      "short_term_rebound_long_term_weak": "7-day or 30-day performance is positive while the 1-year context is materially negative.",
+      "persistent_weakness": "The supplied horizons are mostly negative or show sustained deterioration.",
+      "market_mixed": "The supplied horizons materially disagree or show a mixed market state.",
+      "market_not_covered": "The report does not provide usable multi-horizon market performance."
+    }
+  },
+  "short_term_direction_7d": {
+    "type": "choice",
+    "ui": { "title": "7 天风险状态", "description": "风险状态，不等同于收益预测", "group": "风险状态", "scope": "7d", "labels": { "high_downside_risk": "高下行风险", "downside_risk": "下行风险", "balanced_uncertain": "平衡但不确定", "upside_setup": "存在上涨条件" } },
+    "instructions": "Using only the report evidence, classify the 7-day risk state. This is not a return forecast; choose the state that best describes the balance of near-term downside and upside evidence.",
+    "criteria": {
+      "high_downside_risk": "Specific near-term conditions support a severe downside risk.",
+      "downside_risk": "Downside evidence outweighs upside evidence, but no severe blocker is established.",
+      "balanced_uncertain": "Evidence does not establish a directional edge.",
+      "upside_setup": "Specific catalysts and market evidence support a near-term upside setup."
+    }
+  },
+  "short_term_direction_30d": {
+    "type": "choice",
+    "ui": { "title": "30 天风险状态", "description": "风险状态，不等同于收益预测", "group": "风险状态", "scope": "30d", "labels": { "high_downside_risk": "高下行风险", "downside_risk": "下行风险", "balanced_uncertain": "平衡但不确定", "upside_setup": "存在上涨条件" } },
+    "instructions": "Using only the report evidence, classify the 30-day risk state. This is not a return forecast; do not convert project quality directly into a price return.",
+    "criteria": {
+      "high_downside_risk": "Specific unresolved conditions support a severe downside risk over 30 days.",
+      "downside_risk": "Downside evidence outweighs upside evidence, without a severe blocker.",
+      "balanced_uncertain": "Evidence does not establish a directional edge.",
+      "upside_setup": "Specific catalysts and market evidence support a 30-day upside setup."
+    }
+  },
+  "return_band_7d": {
+    "type": "choice",
+    "ui": { "title": "7 天条件收益区间", "description": "仅在短期数据门禁通过后计算", "group": "条件预测", "scope": "7d", "labels": { "fall_10_or_more": "≤ -10%", "fall_3_to_10": "(-10%, -3%]", "range_minus3_plus3": "(-3%, +3%]", "rise_3_to_10": "(+3%, +10%]", "rise_over_10": "> +10%" } },
+    "instructions": "Only answer this conditional forecast when the structured input has passed the short-term data gate. Select the most likely USD spot return interval exactly 168 hours after t0.",
+    "criteria": {
+      "fall_10_or_more": "R <= -10%.",
+      "fall_3_to_10": "-10% < R <= -3%.",
+      "range_minus3_plus3": "-3% < R <= +3%.",
+      "rise_3_to_10": "+3% < R <= +10%.",
+      "rise_over_10": "R > +10%."
+    }
+  },
+  "return_band_30d": {
+    "type": "choice",
+    "ui": { "title": "30 天条件收益区间", "description": "仅在短期数据门禁通过后计算", "group": "条件预测", "scope": "30d", "labels": { "fall_20_or_more": "≤ -20%", "fall_5_to_20": "(-20%, -5%]", "range_minus5_plus5": "(-5%, +5%]", "rise_5_to_20": "(+5%, +20%]", "rise_over_20": "> +20%" } },
+    "instructions": "Only answer this conditional forecast when the structured input has passed the short-term data gate. Select the most likely USD spot return interval exactly 720 hours after t0.",
+    "criteria": {
+      "fall_20_or_more": "R <= -20%.",
+      "fall_5_to_20": "-20% < R <= -5%.",
+      "range_minus5_plus5": "-5% < R <= +5%.",
+      "rise_5_to_20": "+5% < R <= +20%.",
+      "rise_over_20": "R > +20%."
+    }
+  }
+}

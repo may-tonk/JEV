@@ -1,0 +1,27 @@
+{
+  "name": "jev-evaluation-lab",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.21.0"
+  },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "test:contract": "tsx --test src/contract.test.ts src/report-questions.test.ts src/report-schema.test.ts src/hermes-parser.test.ts src/settlement.test.ts src/evaluation.test.ts src/decision.test.ts",
+    "build:ui": "esbuild src/main.tsx --bundle --platform=browser --format=esm --jsx=automatic --outfile=public/app.js",
+    "dev": "npm run build:ui && node --env-file-if-exists=.env --import tsx src/server.ts",
+    "evaluate:uni": "node --env-file-if-exists=.env --import tsx src/run-uni.ts"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.25.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}

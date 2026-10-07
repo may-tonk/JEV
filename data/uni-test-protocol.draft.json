@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "v1_exploratory_rules_used_in_initial_calls_not_approved_for_accuracy_claim",
+  "purpose": "Paper-only exploratory test of Jev's UNI return-band judgments and a separate qualitative long-term thesis assessment. This is not a trade instruction or a validation of forecasting skill.",
+  "input_file": "uni-jev-state.draft.json",
+  "proposed_model": "jev-1.13.0",
+  "unit_of_analysis": "one asset at one verified decision cutoff; a later snapshot of the same asset is a separate case",
+  "pre_call_quality_gate": {
+    "required": [
+      "The report cutoff is resolved to an unambiguous UTC timestamp with an explicit timezone.",
+      "The reference price and all included features are known to have been observed no later than that cutoff; an independently reproducible study also retains their API endpoints and timestamps.",
+      "The user-confirmed API-sourced metrics may be used in a clearly labeled exploratory call even when Codex has not reviewed their original payloads. This limitation must not be described as evidence that the metrics are wrong.",
+      "No outcome, future event, or post-cutoff revision appears in the state."
+    ],
+    "current_result": "pending_cutoff_timezone_reference_price_source_and_feature_time_check"
+  },
+  "proposed_questions_file": "uni-questions.draft.json",
+  "previous_binary_direction_questions": "Superseded by the candidate five-band 7d and 30d Choice questions; no binary direction questions are active.",
+  "outcome_definition": {
+    "price_pair": "UNI/USD",
+    "quote_source": null,
+    "price_sampling_rule": null,
+    "cutoff_utc": null,
+    "horizons_days": [7, 30],
+    "label_rule": "For each 7d or 30d horizon, compute R = 100 * (future price / starting price - 1) and assign exactly one band from uni-questions.draft.json. If either price cannot be recovered under the predeclared sampling rule, the label is missing and the case is excluded from accuracy scoring. Long-term thesis classifications require a separately defined evaluation standard and must not be scored as price-band outcomes.",
+    "transaction_costs_included": false,
+    "maximum_intraperiod_drawdown_is_a_separate_risk_measure": true,
+    "future_prices_available_now": false
+  },
+  "assessment_plan": {
+    "single_case": "Record the chosen band, all option weights, model version, exact state, and request time; do not call a single prediction an accuracy estimate.",
+    "many_cases": "Once labeled point-in-time snapshots exist, compare multi-class hit rate and probabilistic scores against predeclared baselines. Keep chronologically later cases out of any rule tuning.",
+    "interpretation": "Choice weights are model outputs, not proven calibrated probabilities of financial profit. A positive return band does not establish a profitable trade after fees or acceptable interim risk."
+  },
+  "unresolved_user_choices": [
+    "Approve or revise the illustrative 7d and 30d return-band boundaries in uni-questions.draft.json.",
+    "Keep long-term results as research classifications; define any personal investment objective and risk budget separately before considering a buy/wait/avoid policy.",
+    "Choose a single archived UNI/USD price source and a timestamp/price sampling rule for t0 and both future horizons.",
+    "Confirm that a calendar month is represented by exactly 30 days for this first test."
+  ]
+}

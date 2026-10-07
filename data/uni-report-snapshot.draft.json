@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "status": "draft_not_ready_for_investment_evaluation",
+  "purpose": "Preserve the user-confirmed API-sourced UNI metrics separately from derived interpretations. Codex has not inspected the original API payloads or field-level timestamps.",
+  "decision_time": {
+    "reported_local_time": "2026-09-20 13:35",
+    "timezone": null,
+    "field_level_observed_at": null
+  },
+  "asset": {
+    "name": "Uniswap",
+    "symbol": "UNI",
+    "coingecko_id": "uniswap",
+    "coingecko_id_source": "https://www.coingecko.com/en/coins/uniswap",
+    "chain": "ethereum",
+    "chain_id": 1,
+    "token_contract": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
+    "identity_source": "https://blog.uniswap.org/uni"
+  },
+  "reported_claims": {
+    "source_id": "user_pasted_report_2026-09-20_1335",
+    "verification_status": "api_sourced_user_confirmed_not_independently_replayed",
+    "acquisition_method_attested_by_user": "relevant_APIs",
+    "raw_api_payloads_provided_to_codex": false,
+    "api_endpoints_and_field_timestamps_provided_to_codex": false,
+    "market": {
+      "price_usd": 8.79,
+      "market_cap_usd": 5460000000,
+      "fdv_usd": 7800000000,
+      "ath_usd": 44.92,
+      "return_7d_pct": 38.1,
+      "return_30d_pct": 128.9,
+      "return_1y_pct": -4.4
+    },
+    "supply": {
+      "circulating_tokens": 621000000,
+      "total_tokens": 888000000,
+      "nominal_max_tokens_claimed": 1000000000
+    },
+    "protocol": {
+      "tvl_usd": 3760000000,
+      "tvl_change_30d_pct": 21.4,
+      "tvl_change_90d_pct": 24.1,
+      "tvl_change_180d_pct": 16.0,
+      "v2_tvl_usd": 953000000,
+      "v3_tvl_usd": 1604000000,
+      "v4_tvl_usd": 1200000000
+    },
+    "derivatives": {
+      "funding_rate_pct_reported": 0.01,
+      "funding_interval": null,
+      "long_short_ratio": 1.95,
+      "long_short_ratio_method": null,
+      "bybit_open_interest_usd": 99100000,
+      "okx_open_interest_usd": 56700000,
+      "futures_volume_24h_usd": 570000000,
+      "long_liquidations_180d_usd": 9610000,
+      "short_liquidations_180d_usd": 5180000,
+      "long_liquidations_30d_usd": 2440000,
+      "short_liquidations_30d_usd": 2630000
+    },
+    "holders": {
+      "top10_share_pct": 52.13,
+      "claimed_timelock_share_pct": 26.72,
+      "claimed_burn_address_share_pct": 11.18,
+      "share_denominator": null,
+      "full_addresses_and_block_height_available": false
+    }
+  },
+  "recalculated_from_report_only": {
+    "market_cap_from_price_and_circulating_usd": 5458590000,
+    "fdv_from_price_and_total_usd": 7805520000,
+    "total_minus_circulating_tokens": 267000000,
+    "total_minus_circulating_share_of_total_pct_rounded": 30.07,
+    "nominal_max_minus_circulating_tokens": 379000000,
+    "nominal_max_minus_circulating_share_of_nominal_max_pct": 37.9,
+    "nominal_max_minus_total_tokens": 112000000,
+    "sum_of_reported_v2_v3_v4_tvl_usd": 3757000000,
+    "short_minus_long_liquidations_30d_usd": 190000
+  },
+  "reference_facts_not_verified_as_current_market_state": [
+    {
+      "fact": "Uniswap v4 was announced live on 2025-01-31; later development does not imply it was not yet launched.",
+      "source": "https://blog.uniswap.org/uniswap-v4-is-here"
+    },
+    {
+      "fact": "The original UNI issuance plan describes 1 billion tokens at genesis and a possible 2% annual inflation design after four years.",
+      "source": "https://blog.uniswap.org/uni"
+    },
+    {
+      "fact": "The published UNI contract source includes a mint function subject to minter, timing and cap checks; the minter's state at the report time is not established here.",
+      "source": "https://github.com/Uniswap/governance/blob/master/contracts/Uni.sol"
+    }
+  ],
+  "quality_flags": [
+    "The report combines 37.9% of nominal maximum supply with 267 million tokens calculated from total supply; these denominators must not be mixed.",
+    "The 112 million token gap between nominal maximum and reported total supply is not an unlock schedule; burned and unminted amounts require separate verification.",
+    "The 30-day TVL rise does not establish net deposits or a causal explanation for UNI price changes.",
+    "The 30-day liquidation totals alone do not establish a short squeeze as the cause of the reported price rise.",
+    "Top-holder identities and sellable concentration cannot be confirmed from shortened addresses and an unknown denominator.",
+    "The user confirms the quantitative metrics were fetched through APIs. The report time is not a per-field API timestamp, and original responses and endpoint definitions have not been supplied to Codex."
+  ],
+  "excluded_from_jev_input_until_supported": [
+    "UNI cannot be minted",
+    "38% or 267 million UNI will be unlocked and sold",
+    "Uniswap v4 has not launched",
+    "TVL growth caused the price increase",
+    "A short squeeze caused the price increase",
+    "UNI should be bought only after a pullback",
+    "A high risk label predicts a negative 7-day or 30-day return"
+  ],
+  "minimum_missing_evidence": [
+    "For an independently reproducible accuracy study: original API responses or archived endpoint records with field-level timestamps and source URLs",
+    "Verified supply, burned amount and dated future unlock or governance release events",
+    "Spot trading liquidity and historical prices at the decision cutoff",
+    "TVL net inflows, trading fees and actual UNI value-capture mechanism at the cutoff",
+    "Complete holder addresses, balance denominator and block height",
+    "Explicit timezone for the 2026-09-20 13:35 report time"
+  ],
+  "future_outcomes_in_this_file": false
+}
